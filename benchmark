@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd bin
+hangman_dict=../res/words.txt java Main < ../res/input_benchmark.txt
