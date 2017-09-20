@@ -2,7 +2,7 @@
 Hangman in Java
 
 ## NOTE
-The project is one of a series of projects implementing the same algorithm for the Hangman game in different programming languages. The purpose is to learn and show the common and difference of these languages in a practical way.
+The project is one of a series of projects implementing the same algorithm for the [Hangman game](https://en.wikipedia.org/wiki/Hangman_(game)) in different programming languages. The purpose is to learn and show the common and difference of these languages in a practical way.
 
 ## Rerequisite
 
@@ -11,7 +11,7 @@ The project is one of a series of projects implementing the same algorithm for t
 
 ## Build
 
-Run `build` under project root
+Run `build` under project root. The minimum Java version required is 7.
 
 ## Play, Sample and Benchmark
 
