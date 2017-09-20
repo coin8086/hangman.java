@@ -6,7 +6,7 @@ class HangmanGame {
   /**
    * A enum for the current state of the game
    */
-  public enum Status {GAME_WON, GAME_LOST, KEEP_GUESSING}
+  public enum Status { GAME_WON, GAME_LOST, KEEP_GUESSING }
 
   /**
    * A marker for the letters in the secret words that have not been guessed yet.
@@ -14,7 +14,7 @@ class HangmanGame {
   public static final Character MYSTERY_LETTER = '-';
 
   /**
-   * The word that needs to be guessed (e.g. 'FACTUAL')
+   * The word that needs to be guessed
    */
   private final String secretWord;
 
@@ -24,22 +24,22 @@ class HangmanGame {
   private final int maxWrongGuesses;
 
   /**
-   * The letters guessed so far (unknown letters will be marked by the MYSTERY_LETTER constant). For example, 'F-CTU-L'
+   * The letters guessed so far (unknown letters will be marked by the MYSTERY_LETTER constant). For example, 'AB--T'
    */
   private final char[] guessedSoFar;
 
   /**
-   * Set of all correct letter guesses so far (e.g. 'C', 'F', 'L', 'T', 'U')
+   * Set of all correct letter guesses so far
    */
   private Set<Character> correctlyGuessedLetters = new HashSet<Character>();
 
   /**
-   * Set of all incorrect letter guesses so far (e.g. 'R', 'S')
+   * Set of all incorrect letter guesses so far
    */
   private Set<Character> incorrectlyGuessedLetters = new HashSet<Character>();
 
   /**
-   * Set of all incorrect word guesses so far (e.g. 'FACTORS')
+   * Set of all incorrect word guesses so far
    */
   private Set<String> incorrectlyGuessedWords = new HashSet<String>();
 
@@ -77,7 +77,8 @@ class HangmanGame {
     // update the proper set of guessed letters
     if (goodGuess) {
       correctlyGuessedLetters.add(ch);
-    } else {
+    }
+    else {
       incorrectlyGuessedLetters.add(ch);
     }
 
@@ -98,7 +99,8 @@ class HangmanGame {
       for (int i = 0; i<secretWord.length(); i++) {
         guessedSoFar[i] = secretWord.charAt(i);
       }
-    } else {
+    }
+    else {
       incorrectlyGuessedWords.add(guess);
     }
 
@@ -111,7 +113,8 @@ class HangmanGame {
   public int currentScore() {
     if (gameStatus() == Status.GAME_LOST) {
       return 25;
-    } else {
+    }
+    else {
       return numWrongGuessesMade() + correctlyGuessedLetters.size();
     }
   }
@@ -128,9 +131,11 @@ class HangmanGame {
   public Status gameStatus() {
     if (secretWord.equals(getGuessedSoFar())) {
       return Status.GAME_WON;
-    } else if (numWrongGuessesMade() > maxWrongGuesses) {
+    }
+    else if (numWrongGuessesMade() > maxWrongGuesses) {
       return Status.GAME_LOST;
-    } else {
+    }
+    else {
       return Status.KEEP_GUESSING;
     }
   }
