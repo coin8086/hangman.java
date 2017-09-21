@@ -53,7 +53,7 @@ class Main {
       }
     }
     catch (IOException e) {
-      System.err.println(String.format("Cannot open dictionary file '%s' for reading!", file));
+      System.err.println(String.format("Error when reading dictionary file '%s'!", file));
       System.exit(-1);
     }
 
