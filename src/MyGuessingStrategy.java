@@ -66,7 +66,7 @@ class MyGuessingStrategy implements GuessingStrategy {
     /**
      * Letters in descendent order on frequency
      */
-    private List<LetterStat> order = null;
+    private final List<LetterStat> order;
 
     /**
      * Words in the set.
@@ -82,6 +82,9 @@ class MyGuessingStrategy implements GuessingStrategy {
       this.pattern = pattern;
       this.guessedLetters = guessedLetters;
       addAll(words);
+      this.order = new ArrayList<LetterStat>(this.stat.values());
+      Collections.sort(this.order);
+      this.stat = null; //Make the WordSet unmodifiable
     }
 
     /**
@@ -111,6 +114,10 @@ class MyGuessingStrategy implements GuessingStrategy {
 
     @Override
     public boolean add(String word) {
+      if (this.stat == null) {
+        throw new IllegalStateException();
+      }
+
       if (!match(word)) {
         //throw new IllegalArgumentException();
         //It really should raise the exception when the word is not acceptable.
@@ -157,9 +164,6 @@ class MyGuessingStrategy implements GuessingStrategy {
      * Give a suggest of the most probable letter not in the excluded letter set.
      */
     public char suggest(Set<Character> excluded) {
-      if (this.order == null) {
-        makeOrder();
-      }
       for (int i = 0; i < this.order.size(); i++) {
         char ch = this.order.get(i).ch;
         if (!excluded.contains(ch)) {
@@ -168,14 +172,6 @@ class MyGuessingStrategy implements GuessingStrategy {
       }
       assert(false);
       return '\0';
-    }
-
-    /**
-     * Sort letters in a word set on their frquencies in descending order.
-     */
-    private void makeOrder() {
-      order = new ArrayList<LetterStat>(this.stat.values());
-      Collections.sort(order);
     }
 
     @Override
