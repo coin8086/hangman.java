@@ -42,7 +42,7 @@ class MyGuessingStrategy implements GuessingStrategy {
       public int count = 0;  //How many times the letter appears in a WordSet
       public int wordCount = 0;  //How many words contains the letter in a WordSet
 
-      LetterStat(char ch) {
+      public LetterStat(char ch) {
         this.ch = ch;
       }
 
@@ -77,7 +77,7 @@ class MyGuessingStrategy implements GuessingStrategy {
 
     public final Set<Character> guessedLetters;
 
-    WordSet(String pattern, Set<Character> guessedLetters, Collection<String> words) {
+    public WordSet(String pattern, Set<Character> guessedLetters, Collection<String> words) {
       assert(pattern != null && guessedLetters != null);
       this.pattern = pattern;
       this.guessedLetters = guessedLetters;
