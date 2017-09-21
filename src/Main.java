@@ -41,7 +41,7 @@ class Main {
         guesses = 5;
     }
 
-    boolean debug = System.getenv("hangman_debug") != null ? true : false;
+    boolean debug = System.getenv("hangman_debug") != null;
 
     // Read in dictionary file
     Set<String> dict = new HashSet<String>();
