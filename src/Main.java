@@ -58,7 +58,7 @@ class Main {
     }
 
     // Run game
-    double totalScore = 0;
+    int totalScore = 0;
     int total = 0;
 
     try (Scanner s = new Scanner(System.in)) {
@@ -89,7 +89,7 @@ class Main {
     }
 
     if (total > 0)
-      System.out.println(String.format("-----------------------------\nAVG: %g\nNUM: %d\nTOTAL: %g\n",
-        totalScore / total, total, totalScore));
+      System.out.println(String.format("-----------------------------\nAVG: %g\nNUM: %d\nTOTAL: %d\n",
+        totalScore * 1.0 / total, total, totalScore));
   }
 }
