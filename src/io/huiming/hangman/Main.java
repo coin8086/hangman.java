@@ -72,7 +72,7 @@ class Main {
 
         word = word.toUpperCase();
         if (!dict.contains(word)) {
-          System.err.println(String.format("Word '%s' is not in dicitionary!", word));
+          System.err.println(String.format("Word '%s' is not in dictionary!", word));
           continue;
         }
 
