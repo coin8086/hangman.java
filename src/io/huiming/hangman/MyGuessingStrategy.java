@@ -1,3 +1,5 @@
+package io.huiming.hangman;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;

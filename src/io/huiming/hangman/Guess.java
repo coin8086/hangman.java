@@ -1,3 +1,5 @@
+package io.huiming.hangman;
+
 /**
  * Common interface for GuessWord and GuessLetter
  */

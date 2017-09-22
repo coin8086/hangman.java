@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 cd bin
-hangman_dict=../res/words.txt java Main < ../res/input_sample.txt
+hangman_dict=../res/words.txt java io.huiming.hangman.Main < ../res/input_sample.txt

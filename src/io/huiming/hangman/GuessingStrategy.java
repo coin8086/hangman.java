@@ -1,3 +1,5 @@
+package io.huiming.hangman;
+
 /**
  * A strategy for generating guesses given the current state of a Hangman game.
  */

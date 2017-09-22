@@ -6,4 +6,4 @@ if [[ ! -d $bin ]]; then
   mkdir $bin
 fi
 
-javac -d $bin ./src/*.java
+find src -name '*.java' -exec javac -d $bin {} +

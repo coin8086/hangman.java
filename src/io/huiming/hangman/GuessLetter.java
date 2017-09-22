@@ -1,3 +1,5 @@
+package io.huiming.hangman;
+
 /**
  * A Guess that represents guessing a letter for the current Hangman game
  */
