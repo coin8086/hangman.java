@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-cd bin
-hangman_dict=../res/words.txt java io.huiming.hangman.Main < ../res/input_benchmark.txt
+hangman_dict=res/words.txt java -cp bin io.huiming.hangman.Main < res/input_benchmark.txt
