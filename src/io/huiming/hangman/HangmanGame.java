@@ -98,7 +98,7 @@ class HangmanGame {
 
     if (guess.equals(secretWord)) {
       // if the guess is correct, then set guessedSoFar to the secret word
-      for (int i = 0; i<secretWord.length(); i++) {
+      for (int i = 0; i < secretWord.length(); i++) {
         guessedSoFar[i] = secretWord.charAt(i);
       }
     }

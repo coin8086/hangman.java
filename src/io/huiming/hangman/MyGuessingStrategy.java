@@ -188,7 +188,7 @@ class MyGuessingStrategy implements GuessingStrategy {
     String pattern = game.getGuessedSoFar();
     int len = pattern.length();
     List<String> words = new ArrayList<String>();
-    for (String word: dict) {
+    for (String word : dict) {
       if (word.length() == len) {
         words.add(word);
       }
