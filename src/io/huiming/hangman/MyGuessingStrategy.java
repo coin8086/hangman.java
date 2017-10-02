@@ -184,7 +184,7 @@ class MyGuessingStrategy implements GuessingStrategy {
 
   private WordSet wordset;
 
-  public MyGuessingStrategy(HangmanGame game, Set<String> dict) {
+  public MyGuessingStrategy(HangmanGame game, Collection<String> dict) {
     String pattern = game.getGuessedSoFar();
     int len = pattern.length();
     List<String> words = new ArrayList<String>();
