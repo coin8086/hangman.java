@@ -7,6 +7,24 @@ import java.util.Set;
 import java.util.HashSet;
 
 class Main {
+  // Read in dictionary file
+  public static Set<String> loadDictionary(String file) {
+    Set<String> dict = new HashSet<String>();
+    try (Scanner s = new Scanner(new File(file))) {
+      while (s.hasNext()) {
+		    String word = s.next();
+		    if (word.length() > 0)
+		      dict.add(word.toUpperCase());
+      }
+    }
+    catch (IOException e) {
+      System.err.println(String.format("Error when reading dictionary file '%s'!", file));
+      System.exit(-1);
+    }
+    return dict;
+  }
+
+  // Run game
   public static int run(HangmanGame game, GuessingStrategy strategy, boolean debug) {
     while(game.gameStatus() == HangmanGame.Status.KEEP_GUESSING) {
       if (debug) {
@@ -45,21 +63,8 @@ class Main {
 
     boolean debug = System.getenv("hangman_debug") != null;
 
-    // Read in dictionary file
-    Set<String> dict = new HashSet<String>();
-    try (Scanner s = new Scanner(new File(file))) {
-      while (s.hasNext()) {
-		    String word = s.next();
-		    if (word.length() > 0)
-		      dict.add(word.toUpperCase());
-      }
-    }
-    catch (IOException e) {
-      System.err.println(String.format("Error when reading dictionary file '%s'!", file));
-      System.exit(-1);
-    }
+    Set<String> dict = loadDictionary(file);
 
-    // Run game
     int totalScore = 0;
     int total = 0;
 
