@@ -64,29 +64,33 @@ class Main {
     int total = 0;
 
     try (Scanner s = new Scanner(System.in)) {
-      System.err.println("Enter a word:");
-      while (s.hasNext()) {
-        String word = s.next();
-        if (word.isEmpty())
-          break;
-
-        word = word.toUpperCase();
-        if (!dict.contains(word)) {
-          System.err.println(String.format("Word '%s' is not in dictionary!", word));
-          continue;
-        }
-
-        if (debug) {
-          System.err.println(String.format("New Game [%s]", word));
-        }
-
-        HangmanGame game = new HangmanGame(word, guesses);
-        MyGuessingStrategy strategy = new MyGuessingStrategy(game, dict);
-        int score = run(game, strategy, debug);
-        totalScore += score;
-        total++;
-        System.out.println(String.format("%s = %d", word, score));
+      while (true) {
         System.err.println("Enter a word:");
+        if (s.hasNext()) {
+          String word = s.next();
+          if (word.isEmpty())
+            break;
+
+          word = word.toUpperCase();
+          if (!dict.contains(word)) {
+            System.err.println(String.format("Word '%s' is not in dictionary!", word));
+            continue;
+          }
+
+          if (debug) {
+            System.err.println(String.format("New Game [%s]", word));
+          }
+
+          HangmanGame game = new HangmanGame(word, guesses);
+          MyGuessingStrategy strategy = new MyGuessingStrategy(game, dict);
+          int score = run(game, strategy, debug);
+          totalScore += score;
+          total++;
+          System.out.println(String.format("%s = %d", word, score));
+        }
+        else {
+          break;
+        }
       }
     }
 
