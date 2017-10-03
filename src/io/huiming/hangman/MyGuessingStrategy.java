@@ -208,7 +208,6 @@ class MyGuessingStrategy implements GuessingStrategy {
     //counted.
     if (!wrongWords.isEmpty()) {
       int idx = pattern.indexOf(HangmanGame.MYSTERY_LETTER);
-      guessed = new HashSet<Character>(guessedLetters);
       for (String wd : wrongWords) {
         guessed.add(wd.charAt(idx));
       }
